@@ -51,7 +51,7 @@ const html = `
 <tr>
     <th>${key}</th>
     <td><iframe width="560" height="315" src="https://www.youtube.com/embed/${value}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-    <td><button class="delete" data-id="${key}">削除する</button></td>
+    <td><button class="delete" value="${key}">削除する</button></td>
 </tr>
 `;
   $("#list").append(html);
@@ -60,7 +60,8 @@ const html = `
 
 //4.一行ずつデータ削除
 $(".delete").on("click", function () {
-  var deletekey =  $(this).data('id');
+  var deletekey =  $(this).val();
+　console.log(deletekey)
   localStorage.removeItem(deletekey);
   window.location.reload();
 });
