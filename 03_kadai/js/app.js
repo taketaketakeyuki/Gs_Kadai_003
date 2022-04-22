@@ -14,9 +14,15 @@ $("#save").on("click" ,function(){
       <tr>
           <th>${key}</th>
           <td><iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+          <td><button class="delete" data-id="${key}">削除する</button></td>
       </tr>
   `;
+  
   $("#list").append(html);
+  $('input').val("");  
+  $('textarea').val("");  
+  alert(入力おつかれさま); //fanctionテスト
+ 
   // const value = $("#memo").val(); localStorage.setItem(key,value); //一覧表示に追加
   // const html = '<tr><th>'+key+'</th><td>'+value+'</td></tr>';
   // $("#list").append(html);
@@ -45,7 +51,16 @@ const html = `
 <tr>
     <th>${key}</th>
     <td><iframe width="560" height="315" src="https://www.youtube.com/embed/${value}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    <td><button class="delete" data-id="${key}">削除する</button></td>
 </tr>
 `;
-$("#list").append(html);
+  $("#list").append(html);
 }
+
+
+//4.一行ずつデータ削除
+$(".delete").on("click", function () {
+  var deletekey =  $(this).data('id');
+  localStorage.removeItem(deletekey);
+  window.location.reload();
+});
