@@ -1,4 +1,4 @@
-
+ 
 //1.Save クリックイベント
 $("#save").on("click" ,function(){
   // alert(1); //fanctionテスト
@@ -11,11 +11,13 @@ $("#save").on("click" ,function(){
   localStorage.setItem(key,id);
   //古い書き方、 const html = '<tr><th>'+key+'</th><td>'+value+'</td></tr>'; 
   const html = `
-      <tr>
-          <th>${key}</th>
-          <td><iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-          <td><button class="delete" data-id="${key}">削除する</button></td>
-      </tr>
+  <div class="box">
+  <table>
+  <tr><th>${key}</th></tr>
+  <tr><td><iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr>
+  <tr><td><button class="delete" data-id="${key}">削除する</button></td></tr>
+  </table>
+  <div>
   `;
   
   $("#list").append(html);
@@ -48,11 +50,13 @@ const value = localStorage.getItem(key);
 //const html = '<tr><th>'+key+'</th><td>'+value+'</td></tr>'; $("#list").append(html);
 
 const html = `
-<tr>
-    <th>${key}</th>
-    <td><iframe width="560" height="315" src="https://www.youtube.com/embed/${value}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-    <td><button class="delete" value="${key}">削除する</button></td>
-</tr>
+<div class="box">
+<table>
+<tr><th>${key}</th></tr>
+<tr><td><iframe width="560" height="315" src="https://www.youtube.com/embed/${value}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr>
+<tr><td><button class="delete" value="${key}">削除する</button></td></tr>
+</table>
+</div>
 `;
   $("#list").append(html);
 }

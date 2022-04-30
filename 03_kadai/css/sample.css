@@ -70,7 +70,7 @@ textarea {
 table {
   margin: 20px 3%;
   border: 1px solid #8dc3f5;
-  width: 96%;
+  width: 560px;
 }
 th {
   width: 30%;
@@ -89,3 +89,8 @@ input {
   height: 40px;
   font-size: 80%;
 }
+
+div.box{
+  float: left;
+  padding: 10px;
+} 
